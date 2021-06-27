@@ -1,0 +1,403 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,600); 
+@import url(https://fonts.googleapis.com/css?family=Audiowide);
+:root{
+    --bg-orange: #f37828;
+    --nav-height: 8vw;
+}
+::selection{
+    background-color: var(--bg-orange);
+    color: #fff;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+
+}
+img{
+    width: 100%;
+    height: 100%;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Audiowide', cursive;
+}
+body{
+    background:linear-gradient(rgba(0,0,0,0.5),rgba(1, 0, 20, 0.623)), url('../img/alian3.jpg')  no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100%;
+    overflow-x: hidden;
+}
+section{
+    padding: 5% 0;
+}
+.__orange{
+    color: var(--bg-orange);
+}
+.text-secondary{
+    color: #cccccca6 !important;
+}
+._Orb-title{
+    position: relative;
+    font-size: 3.5vw;
+    font-weight: 900;
+}
+._Orb-title:after , 
+.__nav a:not(:first-child):after{
+    position: absolute;
+    content: "";
+    bottom: -25%;
+    left: 0;
+    height: 8%;
+    width: 100%;
+    background-color: var(--bg-orange);
+    transform: scaleX(0.6);
+}
+._Orb-card-tit{
+    font-size: 1.7vw;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+.card-Sub-tit{
+    font-size: 1.4vw;
+    letter-spacing: 2px;
+}
+.m-b-2{ margin-bottom: 2%; }
+.m-b-3{ margin-bottom: 3%; }
+.m-b-4{ margin-bottom: 4%; }
+
+.btn:focus{
+    border: 0;
+    box-shadow: none;
+}
+.f-2{
+    font-size: 1.2vw;
+}
+.f-3{
+    font-size: 1.5vw;
+}
+
+/*************************
+    navbar
+**************************/
+.__fixedPos{
+    position: fixed;
+    width: 100%;
+    top: 0%;
+    z-index: 3;
+}
+.__nav{
+    display: flex;
+    align-items: center;
+    background-color: #07070aaf;
+    height: var(--nav-height);
+}
+.nav_brand{
+    height: 100%;
+}
+.__nav a{
+    color: var(--bg-orange);
+    display: block;
+    text-decoration: none;
+    font-size: 1.2vw;
+    margin-left: 3%;
+    padding: 0.2% 0%;
+    position: relative;
+}
+.__nav a:not(:first-child):after{
+    transform: scaleX(0);
+    transition: all 200ms ease;
+    bottom: 0%;
+    height: 2%;
+}
+.__nav a:not(:first-child):hover:after{
+    transform: scaleX(1);
+}
+.__nav a:hover{
+    color: #e48440c9;
+}
+.__nav a.active:after{
+    transform: scaleX(1);
+}
+
+/****************************
+    main page
+******************************/
+.__Orb-main{
+    background-size: cover;
+    position: relative;
+    overflow-x: hidden;
+}
+._Orb-slider{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+}
+._Orb-slider ._Orb-btn{
+    padding: 3% 6%;
+    border-radius: 3vw;
+}
+._Orb-slider > li{
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 0;
+    transition: all 500ms ease-in-out;
+}
+li._Orb-active{
+    opacity: 1;
+    z-index: 1;
+}
+._Orb-slider ._Orb-title:after{ transform: scale(0); }
+._Orb-slider li:nth-child(1){
+    background: linear-gradient(rgb(15 15 15 / 51%), #03010eee), url('https://cdn.pixabay.com/photo/2015/04/23/21/59/tree-736875_960_720.jpg') no-repeat, #01021896;
+    background-size: cover;
+}
+._Orb-slider li:nth-child(2){
+    background: linear-gradient(rgb(15 15 15 / 51%), #03010eee),url('https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_960_720.jpg') no-repeat;
+    background-size: cover;
+}
+._Orb-slider li:nth-child(3){
+    background: linear-gradient(rgb(4 8 13 / 50%), #03010eb8 30%),url(https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) no-repeat;
+    background-size: cover;
+    background-position: 100%;
+}
+._slide-btns{
+    width: 4%;
+    position: absolute;
+    z-index: 4;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.7% 1%;
+    font-size: 1.5vw;
+    color: var(--bg-orange);
+    background-color: #000;
+    cursor: pointer;
+}
+._slide-left{
+    left: -2%;
+    border-radius: 0 50% 50% 0;
+    text-align: right;
+}
+._slide-right{
+    right: -1.5%;
+    border-radius: 50% 0 0 50%;
+}
+.fade-down{
+    animation: fadeIn ease-in 700ms;
+    animation-delay: 400ms;
+    -webkit-animation: fadeIn ease-in 500ms;
+    -moz-animation: fadeIn ease-in 500ms;
+    -o-animation: fadeIn ease-in 500ms;
+    -ms-animation: fadeIn ease-in 500ms;
+}
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+    transform: translateY(-20px);
+  }
+  70%{     
+      opacity:0.5;
+      /* transform: translateY(0px); */
+  }
+  /* 80%{
+      transform: translateY(-10px);
+  }
+  88%{
+      transform: translateY(0px);
+  }
+  93%{
+      transform: translateY(-5px);
+  } */
+  100% {
+      opacity: 1;
+      transform: translateY(0px);
+  }
+}
+
+/*****************************
+    ABOUT ORBAILIX SECTION
+******************************/
+._About-Orb p{
+    background-color: #0c050033;
+    border-left: 5px solid var(--bg-orange);
+    border-right: 5px solid var(--bg-orange);
+    padding: 1%;
+}
+
+/******************************
+    Orbailix team
+******************************/
+._Orb-dev{
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--bg-orange);
+    padding: 0;
+    margin: 0 auto;
+}
+
+._Orb-dev img{
+    filter: grayscale(1);
+    transition: all 400ms ease;
+}
+._Orb-dev:hover img{
+    filter: grayscale(0);
+    cursor:zoom-in;
+}
+
+/******************************
+    Services
+******************************/
+.__Orb-services{
+    background: linear-gradient(rgba(0, 0, 2, 0.699),rgba(1, 0, 20, 0.904)),url('https://genesis.praxent.com/wp-content/uploads/2020/04/stat-bg.jpg?id=19728') no-repeat;
+    background-size: cover;
+}
+._Orb_ser-card{
+    background-color: #1010104d;
+    padding: 1%;
+    transition: transform 200ms ease;
+}
+._Orb_ser-card:hover{
+    cursor:crosshair;
+    box-shadow: -1px 1px 5px #3f3e3e;
+}
+.list-group-item{
+    background: transparent;
+    border: 0;
+    padding: 0.5% 0%;
+    color: #c4c6c8;
+    font-size: 1.2vw;
+}
+
+/**************************
+contact us form
+***************************/
+.__Orb-contact-us{
+    background-color: #070708;
+    font-size: 1.2vw;
+    color: #f37928c0;
+}
+.__Orb-contact-us .left-col{
+    padding: 0.5% 4%;
+}
+._Orb-form .form-control{
+    font-size: 1.2vw;
+    padding: 0.9vw 1vw;
+    background-color: #57575838;
+    color: #fff;
+    border: 0;
+    box-shadow:none;
+    letter-spacing: 2px;
+}
+._Orb-form .form-control:focus{
+    background-color: #57575838;
+}
+._Orb-btn{
+    font-size: 1.2vw;
+    padding: 1.5% 8%;
+    font-weight: 900;
+    letter-spacing: 2px;
+    border: 0;
+    border-radius: 5px;
+}
+.Orb-bg-orange{
+    background-color: #ff6003;
+    color: #fff;
+}
+.right-col .map{
+    padding: 3%;
+}
+.map iframe{
+    width: 100%;
+    height: 30vw;
+}
+.right-col a{
+    text-decoration: none;
+    color: gray;
+}
+/*********************************
+    CAREER
+*********************************/
+.career{
+    min-height: calc(100vh - var(--nav-height));
+    margin-top: var(--nav-height);
+}
+.career-box{
+    padding: 5% 10%;
+    background:linear-gradient(rgba(0, 0, 0, 0.89),rgba(1, 0, 20, 0.836)),  url('https://images.unsplash.com/photo-1476231790875-016a80c274f3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80');
+    background-size: cover;
+    background-attachment: fixed;
+    height: 30vw;
+}
+.career marquee{
+    width: 100%;
+    padding: 1% 0;
+    vertical-align: middle;
+    margin: 0 auto;
+}
+.current-careers{
+    padding: 2% 10%;
+}
+.b-bottom{
+    padding: 1% 2%;
+    border-bottom: 2px solid #c4c6c8;
+}
+
+/**********************************
+    FOOTER SECION
+***********************************/
+.social-media a{
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.5% 0.8%;
+    border-radius: 50%;
+    margin-right: 1%;
+    transition: all 200ms linear;
+}
+.social-media a:hover{
+    color: #ffffff;
+    background-color: #f37828;
+    transform: translateY(-4px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+background:url('https://cdn.pixabay.com/photo/2015/04/23/21/59/tree-736875_960_720.jpg') no-repeat;
+background:url('https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_960_720.jpg') no-repeat;
+background:url('https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg') no-repeat;
+background-image:url('https://cdn.pixabay.com/photo/2015/04/23/21/59/tree-736875_960_720.jpg');
+https://www.youtube.com/watch?v=C55xYgwj0Hs
+http://preview.themeforest.net/item/dotcreative-web-design-agency-html-template/full_screen_preview/22768880?clickid=Q5xzl63PbxyLTwAwUx0Mo3EZUkETGvQhaWxxUY0&iradid=275988&iradtype=ONLINE_TRACKING_LINK&irgwc=1&irmptype=mediapartner&irpid=1223214&mp_value1=&utm_campaign=af_impact_radius_1223214&utm_medium=affiliate&utm_source=impact_radius
+https://preview.themeforest.net/item/thegem-creative-multipurpose-highperformance-wordpress-theme/full_screen_preview/16061685
+*/
